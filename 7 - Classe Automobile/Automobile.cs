@@ -12,7 +12,8 @@ namespace _7___Classe_Automobile
         private int _marcia; 
         private int _velocita;
         private int _limite;
-        private int _range;
+        private int _rangeSu;
+        private int _rangeGiu;
 
         public bool Accensione
         {
@@ -39,10 +40,16 @@ namespace _7___Classe_Automobile
             set { _limite = value; }
         }
 
-        public int Range
+        public int RangeSu
         {
-            get { return _range; }
-            set { _range = value; }
+            get { return _rangeSu; }
+            set { _rangeSu = value; }
+        }
+
+        public int RangeGiu
+        {
+            get { return _rangeGiu; }
+            set { _rangeGiu = value; }
         }
 
         public Automobile()
@@ -51,21 +58,23 @@ namespace _7___Classe_Automobile
             Marcia = 0;
             Velocita = 0;
             Limite = 180;
-            Range = 30;
+            RangeSu = 30;
+            RangeGiu = 180;
         }
 
-        public Automobile(bool accensione, int marcia, int velocita, int limite, int range)
+        public Automobile(bool accensione, int marcia, int velocita, int limite, int rangeSu, int rangeGiu)
         {
             _accensione = accensione;
             _marcia = marcia;
             _velocita = velocita;
             _limite = limite;
-            _range = range;
+            _rangeSu = rangeSu;
+            _rangeGiu = rangeGiu;
         }
 
         public string Accesa()
         {
-            string ret = "";
+            string ret;
 
             if (Accensione)
             {
@@ -123,11 +132,11 @@ namespace _7___Classe_Automobile
             {
                 for (int i = Marcia; i < 7; i++)
                 {
-                    if (Velocita == Range)
+                    if (Velocita == RangeSu)
                     {
                         Marcia += 1;
                         ret = $"Marcia scalata correttamente. Sei in {Marcia}^.\n";
-                        Range += 30;
+                        RangeSu += 30;
                         break;
                     }
 
@@ -139,6 +148,30 @@ namespace _7___Classe_Automobile
 
                     ret = $"Condizioni per scalare marcia non rispettate. Sei in {Marcia}^.\n";
                     break;
+                }
+            }
+
+            return ret;
+        }
+
+        public string MarceGiu()
+        {
+            string ret = "La macchina è spenta.\n";
+
+            if (Accensione)
+            {
+                for (int i = 7; i > Marcia + 1; i--)
+                {
+                    RangeGiu -= 30;
+
+                    if (Velocita == RangeGiu)
+                    {
+                        Marcia -= 1;
+                        ret = $"Marcia scalata correttamente. Sei in {Marcia}^.\n";
+                        break;
+                    }
+
+                    ret = $"Condizioni per scalare marcia non rispettate. Sei in {Marcia}^.\n";
                 }
             }
 

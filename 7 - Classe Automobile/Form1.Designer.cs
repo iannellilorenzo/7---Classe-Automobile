@@ -37,6 +37,8 @@
             this.FrenoBut = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.MarciaSuBut = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.MarciaGiuBut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AccensBot
@@ -130,11 +132,33 @@
             this.MarciaSuBut.UseVisualStyleBackColor = true;
             this.MarciaSuBut.Click += new System.EventHandler(this.MarciaSuBut_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(508, 216);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(120, 16);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Scala marcia in giù";
+            // 
+            // MarciaGiuBut
+            // 
+            this.MarciaGiuBut.Location = new System.Drawing.Point(493, 232);
+            this.MarciaGiuBut.Margin = new System.Windows.Forms.Padding(0);
+            this.MarciaGiuBut.Name = "MarciaGiuBut";
+            this.MarciaGiuBut.Size = new System.Drawing.Size(144, 45);
+            this.MarciaGiuBut.TabIndex = 9;
+            this.MarciaGiuBut.UseVisualStyleBackColor = true;
+            this.MarciaGiuBut.Click += new System.EventHandler(this.MarciaGiuBut_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1465, 744);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.MarciaGiuBut);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.MarciaSuBut);
             this.Controls.Add(this.label3);
@@ -164,6 +188,8 @@
         private System.Windows.Forms.Button FrenoBut;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button MarciaSuBut;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button MarciaGiuBut;
     }
 }
 

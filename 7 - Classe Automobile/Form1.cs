@@ -63,5 +63,11 @@ namespace _7___Classe_Automobile
             string message = auto.MarceSu();
             Display.Items.Add(message);
         }
+
+        private void MarciaGiuBut_Click(object sender, EventArgs e)
+        {
+            string message = auto.MarceGiu();
+            Display.Items.Add(message);
+        }
     }
 }
