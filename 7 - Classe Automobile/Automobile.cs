@@ -43,5 +43,38 @@ namespace _7___Classe_Automobile
             _marcia = marcia;
             _velocita = velocita;
         }
+
+        public string Accesa()
+        {
+            string ret = "";
+
+            if (Accensione)
+            {
+                ret = "La macchina è già accesa.";
+            }
+            else
+            {
+                ret = "La macchina è stata accesa.";
+                Accensione = true;
+            }
+
+            return ret;
+        }
+
+        public string Accelerazione()
+        {
+            string ret = "";
+
+            if (Accensione)
+            {
+                Velocita += 10;
+            }
+            else
+            {
+                ret = "La macchina non è accesa.";
+            }
+
+            return ret;
+        }
     }
 }
