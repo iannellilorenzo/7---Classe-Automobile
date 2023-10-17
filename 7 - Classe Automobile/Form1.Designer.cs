@@ -30,11 +30,13 @@
         {
             this.AccensBot = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.Jarvis = new System.Windows.Forms.ListView();
+            this.Display = new System.Windows.Forms.ListView();
             this.AccelBut = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.FrenoBut = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.MarciaSuBut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AccensBot
@@ -57,16 +59,16 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Accensione";
             // 
-            // Jarvis
+            // Display
             // 
-            this.Jarvis.HideSelection = false;
-            this.Jarvis.Location = new System.Drawing.Point(946, 13);
-            this.Jarvis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Jarvis.Name = "Jarvis";
-            this.Jarvis.Size = new System.Drawing.Size(506, 718);
-            this.Jarvis.TabIndex = 2;
-            this.Jarvis.UseCompatibleStateImageBehavior = false;
-            this.Jarvis.View = System.Windows.Forms.View.List;
+            this.Display.HideSelection = false;
+            this.Display.Location = new System.Drawing.Point(946, 13);
+            this.Display.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Display.Name = "Display";
+            this.Display.Size = new System.Drawing.Size(506, 718);
+            this.Display.TabIndex = 2;
+            this.Display.UseCompatibleStateImageBehavior = false;
+            this.Display.View = System.Windows.Forms.View.List;
             // 
             // AccelBut
             // 
@@ -108,16 +110,38 @@
             this.FrenoBut.UseVisualStyleBackColor = true;
             this.FrenoBut.Click += new System.EventHandler(this.FrenoBut_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(325, 216);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(116, 16);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Scala marcia in su";
+            // 
+            // MarciaSuBut
+            // 
+            this.MarciaSuBut.Location = new System.Drawing.Point(310, 232);
+            this.MarciaSuBut.Margin = new System.Windows.Forms.Padding(0);
+            this.MarciaSuBut.Name = "MarciaSuBut";
+            this.MarciaSuBut.Size = new System.Drawing.Size(144, 45);
+            this.MarciaSuBut.TabIndex = 7;
+            this.MarciaSuBut.UseVisualStyleBackColor = true;
+            this.MarciaSuBut.Click += new System.EventHandler(this.MarciaSuBut_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1465, 744);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.MarciaSuBut);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.FrenoBut);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.AccelBut);
-            this.Controls.Add(this.Jarvis);
+            this.Controls.Add(this.Display);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AccensBot);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -133,11 +157,13 @@
 
         private System.Windows.Forms.Button AccensBot;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView Jarvis;
+        private System.Windows.Forms.ListView Display;
         private System.Windows.Forms.Button AccelBut;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button FrenoBut;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button MarciaSuBut;
     }
 }
 

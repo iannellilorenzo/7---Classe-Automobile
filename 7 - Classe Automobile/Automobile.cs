@@ -12,6 +12,7 @@ namespace _7___Classe_Automobile
         private int _marcia; 
         private int _velocita;
         private int _limite;
+        private int _range;
 
         public bool Accensione
         {
@@ -38,20 +39,28 @@ namespace _7___Classe_Automobile
             set { _limite = value; }
         }
 
+        public int Range
+        {
+            get { return _range; }
+            set { _range = value; }
+        }
+
         public Automobile()
         {
             Accensione = false;
             Marcia = 0;
             Velocita = 0;
-            Limite = 150;
+            Limite = 180;
+            Range = 30;
         }
 
-        public Automobile(bool accensione, int marcia, int velocita, int limite)
+        public Automobile(bool accensione, int marcia, int velocita, int limite, int range)
         {
             _accensione = accensione;
             _marcia = marcia;
             _velocita = velocita;
             _limite = limite;
+            _range = range;
         }
 
         public string Accesa()
@@ -74,11 +83,11 @@ namespace _7___Classe_Automobile
 
         public string Accelerazione()
         {
-            string ret = "";
+            string ret;
 
-            if (Accensione && Velocita + 50 <= Limite)
+            if (Accensione && Velocita + 10 <= Limite)
             {
-                Velocita += 50;
+                Velocita += 10;
                 ret = $"Hai accelerato. La tua velocità è ora di {Velocita}Km/h.\n";
             }
             else
@@ -91,16 +100,46 @@ namespace _7___Classe_Automobile
 
         public string Freno()
         {
-            string ret = "";
+            string ret;
 
-            if (Accensione && Velocita > 0 && Velocita - 50 >= 0)
+            if (Accensione && Velocita > 0 && Velocita - 10 >= 0)
             {
-                Velocita -= 50;
+                Velocita -= 10;
                 ret = $"Hai frenato. La tua velocità è ora di {Velocita} Km/h.\n";
             }
             else
             {
                 ret = $"Condizioni per frenare non rispettate. La tua velocità è ora di {Velocita} Km/h.\n";
+            }
+
+            return ret;
+        }
+
+        public string MarceSu()
+        {
+            string ret = "La macchina è spenta.\n";
+
+            if (Accensione)
+            {
+                for (int i = Marcia; i < 7; i++)
+                {
+                    if (Velocita == Range)
+                    {
+                        Marcia += 1;
+                        ret = $"Marcia scalata correttamente. Sei in {Marcia}^.\n";
+                        Range += 30;
+                        break;
+                    }
+
+                    if (i == 0)
+                    {
+                        ret = "Condizioni per scalare marcia non rispettate. Sei in 1^.\n";
+                        break;
+                    }
+
+                    ret = $"Condizioni per scalare marcia non rispettate. Sei in {Marcia}^.\n";
+                    break;
+                }
             }
 
             return ret;

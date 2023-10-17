@@ -22,7 +22,7 @@ namespace _7___Classe_Automobile
             auto = new Automobile();
 
             AccensBot.BackColor = Color.Red;
-            Jarvis.Items.Add("Monitoraggio:\n");
+            Display.Items.Add("Monitoraggio:\n");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -37,25 +37,31 @@ namespace _7___Classe_Automobile
             if (auto.Accensione)
             {
                 AccensBot.BackColor = Color.Green;
-                Jarvis.Items.Add(message);
+                Display.Items.Add(message);
             }
             else
             {
                 AccensBot.BackColor = Color.Red;
-                Jarvis.Items.Add(message);
+                Display.Items.Add(message);
             }
         }
 
         private void AccelBut_Click(object sender, EventArgs e)
         {
             string message = auto.Accelerazione();
-            Jarvis.Items.Add(message);
+            Display.Items.Add(message);
         }
 
         private void FrenoBut_Click(object sender, EventArgs e)
         {
             string message = auto.Freno();
-            Jarvis.Items.Add(message);
+            Display.Items.Add(message);
+        }
+
+        private void MarciaSuBut_Click(object sender, EventArgs e)
+        {
+            string message = auto.MarceSu();
+            Display.Items.Add(message);
         }
     }
 }
