@@ -20,6 +20,7 @@ namespace _7___Classe_Automobile
 
         public int Marcia
         { 
+            // controllo per il cambio manuale;
             get { return _marcia; }
             set { _marcia = value; }
         }
@@ -72,6 +73,23 @@ namespace _7___Classe_Automobile
             else
             {
                 ret = "La macchina non è accesa.";
+            }
+
+            return ret;
+        }
+
+        public string Freno()
+        {
+            string ret = "";
+
+            if (Accensione && Velocita > 0 && (Velocita - 10 >= 0))
+            {
+                Velocita -= 10;
+                ret = "Hai frenato. La tua velocità è calata di 10 Km/h.";
+            }
+            else
+            {
+                ret = "Condizioni per frenare non rispettate.";
             }
 
             return ret;
