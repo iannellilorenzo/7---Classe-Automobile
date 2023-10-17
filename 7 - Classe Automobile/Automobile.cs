@@ -51,7 +51,8 @@ namespace _7___Classe_Automobile
 
             if (Accensione)
             {
-                ret = "La macchina è già accesa.";
+                ret = "La macchina è stata spenta.";
+                Accensione = false;
             }
             else
             {
