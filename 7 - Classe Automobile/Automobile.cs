@@ -108,41 +108,47 @@ namespace _7___Classe_Automobile
             return ret;
         }
 
-        public string Accelerazione()
+        public virtual string Accelerazione()
         {
-            string ret;
+            string ret = "La macchina è spenta.\n";
 
-            if (Accensione && Velocita + 10 <= Limite)
+            if (Accensione)
             {
-                Velocita += 10;
-                ret = $"Hai accelerato. La tua velocità è ora di {Velocita}Km/h.\n";
-            }
-            else
-            {
-                ret = $"Condizioni per accelerare non rispettate. La tua velocità è ora di {Velocita} Km/h.\n";
+                if (Velocita + 10 <= Limite)
+                {
+                    Velocita += 10;
+                    ret = $"Hai accelerato. La tua velocità è ora di {Velocita}Km/h.\n";
+                }
+                else
+                {
+                    ret = $"Condizioni per accelerare non rispettate. La tua velocità è ora di {Velocita} Km/h.\n";
+                }
             }
 
             return ret;
         }
 
-        public string Freno()
+        public virtual string Freno()
         {
-            string ret;
+            string ret = "La macchina è spenta.\n";
 
-            if (Accensione && Velocita > 0 && Velocita - 10 >= 0)
+            if (Accensione)
             {
-                Velocita -= 10;
-                ret = $"Hai frenato. La tua velocità è ora di {Velocita} Km/h.\n";
+                if (Velocita > 0 && Velocita - 10 >= 0)
+                {
+                    Velocita -= 10;
+                    ret = $"Hai frenato. La tua velocità è ora di {Velocita} Km/h.\n";
+                }
+                else
+                {
+                    ret = $"Condizioni per frenare non rispettate. La tua velocità è ora di {Velocita} Km/h.\n";
+                }
             }
-            else
-            {
-                ret = $"Condizioni per frenare non rispettate. La tua velocità è ora di {Velocita} Km/h.\n";
-            }
-
+            
             return ret;
         }
 
-        public string MarceSu()
+        public virtual string MarceSu()
         {
             string ret = "La macchina è spenta.\n";
 
@@ -172,7 +178,7 @@ namespace _7___Classe_Automobile
             return ret;
         }
 
-        public string MarceGiu()
+        public virtual string MarceGiu()
         {
             string ret = "La macchina è spenta.\n";
 
@@ -221,6 +227,21 @@ namespace _7___Classe_Automobile
             Giri = giri;
         }
 
+        public override string Accelerazione()
+        {
+            string ret;
 
+            if (Accensione && Velocita + 10 <= Limite)
+            {
+                Velocita += 10;
+                ret = $"Hai accelerato. La tua velocità è ora di {Velocita}Km/h.\n";
+            }
+            else
+            {
+                ret = $"Condizioni per accelerare non rispettate. La tua velocità è ora di {Velocita} Km/h.\n";
+            }
+
+            return ret;
+        }
     }
 }
