@@ -43,13 +43,25 @@ namespace _7___Classe_Automobile
         public int RangeSu
         {
             get { return _rangeSu; }
-            set { _rangeSu = value; }
+            set 
+            {
+                if (value > 0)
+                    _rangeSu = value;
+                else
+                    _rangeSu = 30;
+            }
         }
 
         public int RangeGiu
         {
             get { return _rangeGiu; }
-            set { _rangeGiu = value; }
+            set 
+            {
+                if (value > 0)
+                    _rangeGiu = value;
+                else
+                    _rangeGiu = 150;
+            }
         }
 
         public Automobile()
@@ -59,7 +71,7 @@ namespace _7___Classe_Automobile
             Velocita = 0;
             Limite = 180;
             RangeSu = 30;
-            RangeGiu = 180;
+            RangeGiu = 150;
         }
 
         public Automobile(bool accensione, int marcia, int velocita, int limite, int rangeSu, int rangeGiu)
@@ -160,18 +172,18 @@ namespace _7___Classe_Automobile
 
             if (Accensione)
             {
-                for (int i = 7; i > Marcia + 1; i--)
+                for (int i = 0; i < 7; i++)
                 {
-                    RangeGiu -= 30;
-
                     if (Velocita == RangeGiu)
                     {
                         Marcia -= 1;
                         ret = $"Marcia scalata correttamente. Sei in {Marcia}^.\n";
+                        RangeGiu -= 30;
                         break;
                     }
 
                     ret = $"Condizioni per scalare marcia non rispettate. Sei in {Marcia}^.\n";
+                    RangeGiu -= 30;
                 }
             }
 

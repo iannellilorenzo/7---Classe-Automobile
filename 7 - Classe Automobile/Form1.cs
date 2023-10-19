@@ -69,5 +69,11 @@ namespace _7___Classe_Automobile
             string message = auto.MarceGiu();
             Display.Items.Add(message);
         }
+
+        private void PuliziaMonitor_Click(object sender, EventArgs e)
+        {
+            Display.Items.Clear();
+            Display.Items.Add("Monitoraggio:\n");
+        }
     }
 }
