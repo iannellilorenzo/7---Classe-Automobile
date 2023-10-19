@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,12 +9,12 @@ namespace _7___Classe_Automobile
 {
     public class Automobile
     {
-        private bool _accensione;
-        private int _marcia; 
-        private int _velocita;
-        private int _limite;
-        private int _rangeSu;
-        private int _rangeGiu;
+        protected bool _accensione;
+        protected int _marcia; 
+        protected int _velocita;
+        protected int _limite;
+        protected int _rangeSu;
+        protected int _rangeGiu;
 
         public bool Accensione
         {
@@ -194,5 +195,32 @@ namespace _7___Classe_Automobile
 
             return ret;
         }
+    }
+
+    public class CambioAutomatico : Automobile
+    {
+        private int _giri;
+
+        public int Giri
+        {
+            get { return _giri; }
+            set { _giri = value; }
+        }
+
+        public CambioAutomatico()
+        {
+            Giri = 0;
+        }
+
+        public CambioAutomatico(int giri, bool accensione, int marcia, int velocita, int limite, int rangeSu, int rangeGiu) : base(accensione, marcia, velocita, limite, rangeSu, rangeGiu)
+        {
+            Accensione = false;
+            Marcia = 0;
+            Velocita = 0;
+            Limite = 180;
+            Giri = giri;
+        }
+
+
     }
 }
