@@ -229,16 +229,26 @@ namespace _7___Classe_Automobile
 
         public override string Accelerazione()
         {
-            string ret;
+            string ret = "La macchina è spenta.\n";
 
-            if (Accensione && Velocita + 10 <= Limite)
+            if (Accensione)
             {
-                Velocita += 10;
-                ret = $"Hai accelerato. La tua velocità è ora di {Velocita}Km/h.\n";
-            }
-            else
-            {
-                ret = $"Condizioni per accelerare non rispettate. La tua velocità è ora di {Velocita} Km/h.\n";
+                if (Velocita + 10 <= Limite)
+                {
+                    Velocita += 10;
+                    Giri += 1500;
+                    ret = $"Hai accelerato. La tua velocità è ora di {Velocita}Km/h.\n";
+                }
+                else if (Velocita + 10 > Limite)
+                {
+                    ret = $"Condizioni per accelerare non rispettate. La tua velocità è ora di {Velocita} Km/h.\n";
+                }
+                else
+                {
+                    MarceSu();
+                    Velocita += 10;
+                    ret = $"È stata scalata la marcia automaticamente per necessità. Sei in {Marcia}.\nHai accelerato. La tua velocità è ora di {Velocita}Km/h.\n";
+                }
             }
 
             return ret;

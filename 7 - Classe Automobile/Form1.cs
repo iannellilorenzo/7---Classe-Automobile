@@ -15,11 +15,13 @@ namespace _7___Classe_Automobile
     public partial class Form1 : Form
     {
         Automobile auto;
+        Automobile aut;
 
         public Form1()
         {
             InitializeComponent();
             auto = new Automobile();
+            aut = new CambioAutomatico();
 
             AccensBot.BackColor = Color.Red;
             Display.Items.Add("Monitoraggio:\n");
