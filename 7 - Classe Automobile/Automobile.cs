@@ -23,9 +23,14 @@ namespace _7___Classe_Automobile
 
         public int Marcia
         { 
-            // controllo per il cambio manuale;
             get { return _marcia; }
-            set { _marcia = value; }
+            set 
+            {
+                if (_marcia > 0)
+                    _marcia = value;
+                else
+                    _marcia = 1;
+            }
         }
 
         public int Velocita
