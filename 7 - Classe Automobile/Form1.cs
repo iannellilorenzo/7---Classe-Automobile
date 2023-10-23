@@ -15,13 +15,29 @@ namespace _7___Classe_Automobile
     public partial class Form1 : Form
     {
         Automobile auto;
-        Automobile aut;
 
         public Form1()
         {
             InitializeComponent();
-            auto = new Automobile();
-            aut = new CambioAutomatico();
+
+            DialogResult dr = MessageBox.Show("Generare macchina con cambio manuale?", "Cambio manuale o automatico", MessageBoxButtons.YesNo);
+
+            bool cambio = dr == DialogResult.Yes;
+
+            if (cambio)
+            {
+                auto = new Automobile();
+            }
+            else
+            {
+                MarciaSuBut.Hide();
+                MarciaSuLabel.Hide();
+
+                MarciaGiuLabel.Hide();
+                MarciaGiuBut.Hide();
+
+                auto = new CambioAutomatico();
+            }
 
             AccensBot.BackColor = Color.Red;
             Display.Items.Add("Monitoraggio:\n");

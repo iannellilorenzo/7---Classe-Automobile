@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.SqlServer.Server;
 
 namespace _7___Classe_Automobile
 {
@@ -206,6 +207,8 @@ namespace _7___Classe_Automobile
     public class CambioAutomatico : Automobile
     {
         private int _giri;
+        private int contAcc;
+        private int contFre;
 
         public int Giri
         {
@@ -230,27 +233,66 @@ namespace _7___Classe_Automobile
         public override string Accelerazione()
         {
             string ret = "La macchina è spenta.\n";
+            int giri = Giri;
 
-            if (Accensione)
+            if (!Accensione)
             {
-                if (Velocita + 10 <= Limite)
-                {
-                    Velocita += 10;
-                    Giri += 1500;
-                    ret = $"Hai accelerato. La tua velocità è ora di {Velocita}Km/h.\n";
-                }
-                else if (Velocita + 10 > Limite)
-                {
-                    ret = $"Condizioni per accelerare non rispettate. La tua velocità è ora di {Velocita} Km/h.\n";
-                }
-                else
-                {
-                    MarceSu();
-                    Velocita += 10;
-                    ret = $"È stata scalata la marcia automaticamente per necessità. Sei in {Marcia}.\nHai accelerato. La tua velocità è ora di {Velocita}Km/h.\n";
-                }
+                return ret;
             }
 
+            if (Velocita + 10 <= Limite && (giri != 4500 && giri != 9000 && giri != 13500 && giri != 18000 && giri != 22500 && giri != 27000) && contAcc != 3)
+            {
+                Velocita += 10;
+                Giri += 1500;
+                Giri--;
+                contAcc++;
+                ret = $"Hai accelerato. La tua velocità è ora di {Velocita} Km/h.\n";
+            }
+            else if (Velocita + 10 > Limite)
+            {
+                ret = $"Condizioni per accelerare non rispettate. La tua velocità è ora di {Velocita} Km/h.\n";
+            }
+            else
+            {
+                MarceSu();
+                Velocita += 10;
+                Giri++;
+                contAcc = 1;
+                ret = $"È stata scalata la marcia automaticamente. Sei in {Marcia}. Hai accelerato. La tua velocità è ora di {Velocita}Km/h.\n";
+            }
+
+            return ret;
+        }
+
+        public override string Freno()
+        {
+            string ret = "La macchina è spenta.\n";
+            int giri = Giri;
+
+            if (!Accensione)
+            {
+                return ret;
+            }
+
+            if (Velocita > 0 && Velocita - 10 >= 0 && (giri != 4500 && giri != 9000 && giri != 13500 && giri != 18000 && giri != 22500 && giri != 27000) && contFre != 3)
+            {
+                Velocita -= 10;
+                Giri -= 1500;
+                contFre++;
+                ret = $"Hai frenato. La tua velocità è ora di {Velocita} Km/h.\n";
+            }
+            else if (Velocita > 0 && Velocita - 10 >= 0)
+            {
+                MarceGiu();
+                Velocita -= 10;
+                contFre = 1;
+                ret = $"È stata scalata la marcia automaticamente. Sei in {Marcia}. Hai frenato. La tua velocità è ora di {Velocita} Km/h.\n";
+            }
+            else
+            {
+                ret = $"Condizioni per frenare non rispettate. La tua velocità è ora di: {Velocita} Km/h.";
+            }
+            
             return ret;
         }
     }
