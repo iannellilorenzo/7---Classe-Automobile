@@ -36,7 +36,7 @@ namespace _7___Classe_Automobile
                 MarciaGiuLabel.Hide();
                 MarciaGiuBut.Hide();
 
-                auto = new CambioAutomatico();
+                auto = new Cambio();
             }
 
             AccensBot.BackColor = Color.Red;
