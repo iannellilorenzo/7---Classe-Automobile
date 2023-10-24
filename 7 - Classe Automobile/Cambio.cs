@@ -25,17 +25,13 @@ namespace _7___Classe_Automobile
             }
         }
 
-        public Cambio()
+        public Cambio() : base()
         {
             Giri = 0;
         }
 
         public Cambio(int giri, bool accensione, int marcia, int velocita, int limite, int rangeSu, int rangeGiu) : base(accensione, marcia, velocita, limite, rangeSu, rangeGiu)
         {
-            Accensione = false;
-            Marcia = 0;
-            Velocita = 0;
-            Limite = 180;
             Giri = giri;
         }
 
