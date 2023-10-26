@@ -96,7 +96,12 @@ namespace _7___Classe_Automobile
 
         public Automobile(Automobile autoPrec)
         {
-
+            Accensione = autoPrec.Accensione;
+            Marcia = autoPrec.Marcia;
+            Velocita = autoPrec.Velocita;
+            Limite = autoPrec.Limite;
+            RangeSu = autoPrec.RangeSu;
+            RangeGiu = autoPrec.RangeGiu;
         }
 
         public string Accesa()
