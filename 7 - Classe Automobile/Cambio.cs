@@ -35,6 +35,11 @@ namespace _7___Classe_Automobile
             Giri = giri;
         }
 
+        public Cambio(Cambio autoPrec) : base(autoPrec)
+        {
+            Giri = autoPrec.Giri;
+        }
+
         public override string Accelerazione()
         {
             string ret = "La macchina è spenta.\n";

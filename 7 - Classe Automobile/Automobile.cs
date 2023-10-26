@@ -86,12 +86,17 @@ namespace _7___Classe_Automobile
 
         public Automobile(bool accensione, int marcia, int velocita, int limite, int rangeSu, int rangeGiu)
         {
-            _accensione = accensione;
-            _marcia = marcia;
-            _velocita = velocita;
-            _limite = limite;
-            _rangeSu = rangeSu;
-            _rangeGiu = rangeGiu;
+            Accensione = accensione;
+            Marcia = marcia;
+            Velocita = velocita;
+            Limite = limite;
+            RangeSu = rangeSu;
+            RangeGiu = rangeGiu;
+        }
+
+        public Automobile(Automobile autoPrec)
+        {
+
         }
 
         public string Accesa()
